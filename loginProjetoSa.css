@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@700&display=swap');
+
+body {
+    margin: 0px;
+}
+
+body {
+    background-image: url(/img/images.jfif);
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.balloon {
+
+    width: 500px;
+    height: 260px;
+    margin-bottom: 30px;
+    border-radius: 200px;
+    background: white;
+    background-image: url(/img/8\ smart\ ways\ to\ collect\ customer\ feedback\ [infographic].jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+
+
+}
+
+.text {
+
+    width: 1000px;
+    height: 300px;
+}
+
+h1 {
+    font-family: 'K2D', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    font-size: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#textOne {
+    color: red;
+}
+
+#textTwo {
+    margin: 0px;
+    padding: 0px;
+    height: 10%;
+}
+.box-login {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rigth-login {
+    width: 400px;
+    height: 500px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background: #00B6CC;
+    border-radius: 8px;
+}
