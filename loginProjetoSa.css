@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=K2D:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
 
 body {
     margin: 0px;
@@ -66,6 +67,7 @@ h1 {
     padding: 0px;
     height: 10%;
 }
+
 .box-login {
     width: 30%;
     height: 100%;
@@ -82,4 +84,76 @@ h1 {
     margin-left: 50px;
     background: #00B6CC;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-rigth {
+    width: 350px;
+    height: 450px;
+}
+
+.box-top {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+.linha {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    border-radius: 105px;
+    transform: translate(-30px, -32px);
+}
+
+
+.box-center {
+    margin: 0px;
+    padding: 0px;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 70%;
+    height: 16%;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    outline: none;
+}
+
+button {
+    margin-top: 30px;
+    width: 30%;
+    height: 15%;
+    border: #00B6CC;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #00B6CC;
+}
+
+.box-bottom {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
 }
