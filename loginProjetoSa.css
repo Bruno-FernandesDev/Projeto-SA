@@ -149,11 +149,55 @@ button {
     color: #00B6CC;
 }
 
+
+button:hover {
+    color: white;
+    background-color: #98e3ec;
+}
+
+.option a:hover {
+    color: #b6ebf1;
+}
+
+.icon a:hover {
+
+    color: #b6ebf1;
+}
+
 .box-bottom {
-    height: 30%;
+    height: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: black;
+}
+
+.option {
+    width: 150px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.option a {
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: white;
+}
+
+.icon {
+    display: flex;
+    justify-content: space-evenly;
+    width: 150px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.icon a {
+    font-size: 20px;
+    color: white;
+    padding: 10px;
 }
