@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="../Paginas Css/inicioEmpre.css">
+</head>
+<body>
+    <div class="main-container">
+
+        <div class="top-menu">
+
+            <div class="menu-esquerda">
+                <div class="inicio">
+                    <label for="">Inicio</label>
+                </div>
+                <div class="feedback">
+                    <label for="">FeedBack</label>
+                </div>
+
+            </div>
+
+            <div class="menu-meio">
+                <div class="text">
+                    <h1 id="textOne">iLike</h1>
+                    <h1 id="textTwo">FeedBack</h1>
+                </div>
+            </div>
+
+            <div class="menu-direita">
+                <div class="name">
+                    <label for="">Nome Pessoa</label>
+                </div>
+                <div class="exit">
+                    <label for="">Sair</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="conteudo">
+
+            <div class="topo-conteudo">
+
+                <div class="topo-direita">
+                    <button class="btn-cadastro" onclick="abrirCadastro('vis-cad')">Cadastrar Funcionario</button>
+                </div>
+                    <div class="topo-esquerda">
+                    </div>
+
+                <div id="vis-cad" class="janelaCadastro">
+                    <div class="conteudo-cadastro">
+
+                        <div class="cabecalho-cadastro">
+                            <h1 class="titulo">Novo Funcionario</h1>
+                            <span class="cabecalho-cadastro-fechar" onclick="fecharCadastro('vis-cad')">X</span>
+                        </div>
+
+                        <div class="corpo-cadastro">
+                            <div class="inptop-corpo-cadastro">
+                                <input id="func" placeholder="Nome Do Funcionario">
+                                <input id="cpf" placeholder="CPF">
+                            </div>
+                            <div class="inpbot-corpo-cadastro">
+                                <input id="email" placeholder="Email">
+                                <input id="telefone" placeholder="Telefone">
+                            </div>
+                        </div>
+
+                        <div class="rodape-cadastro">
+                                <button class="btn-enviar" onclick="enviarCadastro()">Enviar</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tabela-conteudo">
+
+                <div class="tabela">
+
+                    <table id="table">
+                        <thead>
+                    <th class="center">ID</th>
+                    <th>Funcionario</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>FeedBack</th>
+                </thead>
+                <tbody id="tbody">
+        
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="../Js/JsEmpresa.js"></script>
+</body>
+</html>

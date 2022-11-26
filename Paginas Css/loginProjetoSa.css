@@ -6,7 +6,7 @@ body {
 }
 
 body {
-    background-image: url(/img/images.jfif);
+    background-image: url(../img/images.jfif);
 }
 
 .main-container {
@@ -34,7 +34,7 @@ body {
     margin-bottom: 30px;
     border-radius: 200px;
     background: white;
-    background-image: url(/img/8\ smart\ ways\ to\ collect\ customer\ feedback\ [infographic].jpg);
+    background-image: url(../img/8\ smart\ ways\ to\ collect\ customer\ feedback\ [infographic].jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
