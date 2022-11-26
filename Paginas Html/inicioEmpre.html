@@ -7,7 +7,7 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="../Paginas Css/inicioEmpre.css">
 </head>
-<body>
+<body onload="listaTabela()">
     <div class="main-container">
 
         <div class="top-menu">
@@ -55,7 +55,7 @@
 
                         <div class="cabecalho-cadastro">
                             <h1 class="titulo">Novo Funcionario</h1>
-                            <span class="cabecalho-cadastro-fechar" onclick="fecharCadastro('vis-cad')">X</span>
+                            <span class="cabecalho-cadastro-fechar" id="vis-cad" onclick="fecharCadastro()">X</span>
                         </div>
 
                         <div class="corpo-cadastro">
@@ -89,7 +89,7 @@
                     <th>CPF</th>
                     <th>Email</th>
                     <th>Telefone</th>
-                    <th>FeedBack</th>
+                    <th class="center">FeedBack</th>
                 </thead>
                 <tbody id="tbody">
         

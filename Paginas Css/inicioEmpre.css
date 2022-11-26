@@ -111,7 +111,7 @@ display: flex;
     display: flex;
 }
 .topo-direita{
-    width: 34%;
+    width: 25%;
     display: flex;
     justify-content:flex-end;
     align-items: flex-end;
@@ -127,7 +127,7 @@ display: flex;
     font-weight: bold;
 }
 .topo-esquerda{
-    width: 66%;
+    width: 75%;
 }
 
 .janelaCadastro{
@@ -227,35 +227,38 @@ display: flex;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
 .tabela{
     color: #000;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 50%;
+    width: 70%;
     background-color:#00B6CC;
     padding: 2px 0;
     border-radius: 5px;
     -webkit-box-shadow: 3px 3px 3px 3px rgb(50, 50, 50, 0.77);
     -moz-box-shadow: 3px 3px 3px 3px rgb(50, 50, 50, 0.77);
     box-shadow: 3px 3px 3px 3px rgb(50, 50, 50, 0.77);
-    height: 70%;
+
 }
 
 .tabela table{
     width: 100%;
-    max-width: 800px;
+    max-width: 1100px;
     border-collapse: collapse;
+
 }
 
 .tabela table tr td{
-    height: 56px;
+    height: 40px;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: .25px;
     text-align: center;
     padding: 0 10px;
+    
 
 }
 
