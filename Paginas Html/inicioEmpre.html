@@ -54,7 +54,7 @@
                     <div class="conteudo-cadastro">
 
                         <div class="cabecalho-cadastro">
-                            <h1 class="titulo">Novo Funcionario</h1>
+                            <h1 class="titulo" id="titulo-cadastro">Novo Funcionario</h1>
                             <span class="cabecalho-cadastro-fechar" id="vis-cad" onclick="fecharCadastro()">X</span>
                         </div>
 
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="rodape-cadastro">
-                                <button class="btn-enviar" onclick="enviarCadastro()">Enviar</button>
+                                <button class="btn-enviar" id="btn1" onclick="enviarCadastro()">Enviar</button>
                         </div>
 
                     </div>
@@ -83,13 +83,15 @@
                 <div class="tabela">
 
                     <table id="table">
-                        <thead>
+                        <thead class="top-table">
                     <th class="center">ID</th>
                     <th>Funcionario</th>
                     <th>CPF</th>
                     <th>Email</th>
                     <th>Telefone</th>
-                    <th class="center">FeedBack</th>
+                    <th>FeedBack</th>
+                    <th>Açoes</th>
+
                 </thead>
                 <tbody id="tbody">
         

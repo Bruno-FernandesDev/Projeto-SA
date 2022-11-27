@@ -3,6 +3,8 @@ let novoCpf = document.getElementById('cpf')
 let novoPhone = document.getElementById('telefone')
 let novoEmail = document.getElementById('email')
 let empresas = []
+let ediçaoId = null
+
 
 
 
@@ -10,6 +12,7 @@ function enviarCadastro(){
 
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
+    if (ediçaoId == null){
 
     if (empresas == null){
         
@@ -20,6 +23,10 @@ function enviarCadastro(){
     }else{
         cadastro()
     }
+}else {
+    atualizarDados(ediçaoId)
+    
+}
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     fecharCadastro()
     Refresh()
@@ -41,18 +48,78 @@ function listaTabela(){
         let td_email = tr.insertCell();
         let td_telefone = tr.insertCell();
         let td_feedback = tr.insertCell();
-
+        let td_acoes = tr.insertCell();
 
         td_id.innerText = empresas.Funcionarios[i].id
         td_funcionario.innerText =empresas.Funcionarios[i].Funcionario
         td_cpf.innerText = empresas.Funcionarios[i].CPF
         td_email.innerText = empresas.Funcionarios[i].Email
         td_telefone.innerText = empresas.Funcionarios[i].Telefone
-        td_feedback.innerHTML = ''
+        td_feedback.innerHTML = 'A'
+
+        let imgEdit = document.createElement('img')
+        imgEdit.src = '../img/editar.png'
+        imgEdit.setAttribute('onclick', 'edicao('+JSON.stringify(empresas.Funcionarios[i])+')')
+
+        let imgExcluir = document.createElement('img') 
+        imgExcluir.src = '../img/excluir.png'
+        imgExcluir.setAttribute('onclick', 'deletar('+empresas.Funcionarios[i].id +')')
+        
+        td_acoes.appendChild(imgExcluir)
+        td_acoes.appendChild(imgEdit)
+
+
+
     }
 
 }
+function edicao(dados){
+    ediçaoId = dados.id
+abrirCadastro()
+    
 
+    document.getElementById('func').value = dados.Funcionario;
+    document.getElementById('cpf').value = dados.CPF;
+    document.getElementById('telefone').value = dados.Telefone;;
+    document.getElementById('email').value = dados.Email;
+
+    document.getElementById('btn1').innerText = 'Atualizar'
+    document.getElementById('titulo-cadastro').innerText = 'Atualizar Funcionario'
+
+}
+
+function atualizarDados(id){
+    for(i = 0; i < empresas.Funcionarios.length; i++){
+        if(empresas.Funcionarios[i].id == id){
+       empresas.Funcionarios[i].Funcionario = novoFunc.value.trim()
+        empresas.Funcionarios[i].CPF =  novoCpf.value.trim()
+        empresas.Funcionarios[i].Email = novoEmail.value.trim()
+        empresas.Funcionarios[i].Telefone = novoPhone.value.trim()
+        }
+    }
+    document.getElementById('btn1').innerText = 'Salvar'
+    document.getElementById('titulo-cadastro').innerText = 'Novo Funcionario'
+
+    ediçaoId = null
+    limpaImput()
+
+
+}
+
+function deletar(id){
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+
+    let tbody = document.getElementById('tbody')
+    for(i=0; i < empresas.Funcionarios.length; i++) {
+        if(empresas.Funcionarios[i].id  == id){
+            empresas.Funcionarios.splice(i , 1)
+            tbody.deleteRow(i)
+        }
+        
+    }
+    localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
+    Refresh()
+}
 
 function cadastro(){
     let numID = 0
@@ -60,7 +127,7 @@ function cadastro(){
 
     for(i=0; i<empresas.Funcionarios.length;i++){
 
-        if(empresas.Funcionarios.id  == idProd){
+        if(empresas.Funcionarios[i].id  == idProd){
             numID = 1
 
         } 
@@ -101,7 +168,9 @@ function Refresh(){
 <th>CPF</th>
 <th>Email</th>
 <th>Telefone</th>
-<th class="center">FeedBack</th>
+<th>FeedBack</th>
+<th>Açoes</th>
+
 </thead>
 <tbody id="tbody">
 
@@ -110,9 +179,9 @@ function Refresh(){
       listaTabela()
 }
 
-function abrirCadastro(abrirCadastro) {
+function abrirCadastro() {
 
-let modal =document.getElementById(abrirCadastro)
+let modal =document.getElementById('vis-cad')
 modal.style.display = 'block'
 document.body.style.overflow = 'hidden'
 }
@@ -122,5 +191,10 @@ function fecharCadastro() {
     let modal =document.getElementById('vis-cad')
     modal.style.display = 'none'
     document.body.style.overflow = 'auto'
+
+    document.getElementById('titulo-cadastro').innerText = 'Novo Funcionario'
+    document.getElementById('btn1').innerText = 'Salvar'
+    ediçaoId = null
+    limpaImput()
 
  }
