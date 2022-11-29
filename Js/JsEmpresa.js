@@ -3,8 +3,11 @@ let novoFunc = document.getElementById('func')
 let novoCpf = document.getElementById('cpf')
 let novoPhone = document.getElementById('telefone')
 let novoEmail = document.getElementById('email')
+let tituloRelatorio = document.getElementById('titulo-Relatorio')
 let empresas = []
 let ediçaoId = null
+let idUser
+let usuarioDaVez
 
 
 
@@ -53,6 +56,31 @@ function listaTabela(){
 
     for(i = 0; i<empresas.Funcionarios.length; i++){
         
+        let imgFeed = Number(empresas.Funcionarios[i].Feedback.DesempenhoMedia)
+        let imgEmoji = document.createElement('img')
+        imgEmoji.setAttribute('onclick', 'relatorio('+empresas.Funcionarios[i].id +')')
+        //switch para botar os emojis referente a nota do desempenho
+        switch(true){
+
+            case imgFeed >= 0 && imgFeed <2:
+                imgEmoji.src = '../img/pessimo.png'
+                break
+                case imgFeed >= 2 && imgFeed <= 3:
+                    imgEmoji.src = '../img/Ruim.png'
+                    break
+                case imgFeed > 3 && imgFeed <= 5:
+                    imgEmoji.src = '../img/medio.png'
+
+                    break
+                    case imgFeed > 5 && imgFeed <= 7:
+                        imgEmoji.src = '../img/otimo.png' 
+
+                        break
+                        case imgFeed > 7 && imgFeed <= 10:
+                            imgEmoji.src = '../img/Exelente.png'
+                            break 
+            
+        }
         //Criação das linhas e colunas
         let tr = tbody.insertRow();
         let td_id = tr.insertCell();
@@ -69,7 +97,7 @@ function listaTabela(){
         td_cpf.innerText = empresas.Funcionarios[i].CPF
         td_email.innerText = empresas.Funcionarios[i].Email
         td_telefone.innerText = empresas.Funcionarios[i].Telefone
-        td_feedback.innerHTML =  empresas.Funcionarios[i].Feedback.Media
+        td_feedback.appendChild(imgEmoji)
 
         //Criando um icone para Editar o Funcionario
         let imgEdit = document.createElement('img')
@@ -83,12 +111,13 @@ function listaTabela(){
         
         td_acoes.appendChild(imgExcluir)
         td_acoes.appendChild(imgEdit)
-
-
-
+        imgExcluir.style.cursor= 'pointer'
+        imgEdit.style.cursor= 'pointer'
+        imgEmoji.style.cursor= 'pointer'
     }
-
 }
+
+
 
 //Função para edição onde o parametro vai pegar o id de cada Funcionario e armazenar na variavel
 function edicao(dados){
@@ -114,7 +143,7 @@ abrirCadastro()
 function atualizarDados(id){
     for(i = 0; i < empresas.Funcionarios.length; i++){
         if(empresas.Funcionarios[i].id == id){
-       empresas.Funcionarios[i].Funcionario = novoFunc.value.trim()
+        empresas.Funcionarios[i].Funcionario = novoFunc.value.trim()
         empresas.Funcionarios[i].CPF =  novoCpf.value.trim()
         empresas.Funcionarios[i].Email = novoEmail.value.trim()
         empresas.Funcionarios[i].Telefone = novoPhone.value.trim()
@@ -123,7 +152,7 @@ function atualizarDados(id){
 
     //Mudando o nome do botão e o texto do cabeçalho para o normal
     document.getElementById('btn1').innerText = 'Salvar'
-    document.getElementById('titulo-cadastro').innerText = 'Novo Funcionario'
+    document.getElementById('titulo-cadastro').innerText = 'Novo Funcionário'
 
     //mudando o valor da variavel para saber que a edição acabou
     ediçaoId = null
@@ -135,7 +164,7 @@ function atualizarDados(id){
 //Função para deletar o usuario a partir do seu id
 function deletar(id){
 
-    if(confirm(`Deseja Realmente deletar o funcionario do ID ${id}`)){
+    if(confirm(`Deseja Realmente deletar o Funcionário do ID ${id}`)){
     let tbody = document.getElementById('tbody')
     //Vai comparar o id ate achar para excluir 
     for(i=0; i < empresas.Funcionarios.length; i++) {
@@ -183,7 +212,9 @@ function cadastro(){
                 TrabalhoEquipe: [],
                 Liderança: [],
                 Comprometimento: [],
-                Media: []
+                Media: [],
+                DesempenhoMedia: '',
+                Data:[]
             },
             id: idProd
 
@@ -207,7 +238,7 @@ function Refresh(){
     document.getElementById("table").innerHTML = ` <table id="table">
     <thead>
 <th class="center">ID</th>
-<th>Funcionario</th>
+<th>Funcionário</th>
 <th>CPF</th>
 <th>Email</th>
 <th>Telefone</th>
@@ -243,3 +274,70 @@ function fecharCadastro() {
     limpaImput()
 
  }
+
+
+
+
+
+ //Abrir janela Modal de relatorio
+function abrirRelatorio(){
+    
+    let modalRela = document.getElementById('vis-relatorio')
+    modalRela.style.display = 'block'
+    document.body.style.overflow = 'hidden'
+}
+
+//Fechar Janela Modal de realatorio
+function fecharRelatorio(){
+    let modalRela =document.getElementById('vis-relatorio')
+    modalRela.style.display = 'none'
+    document.body.style.overflow = 'auto'
+    RefreshRela()
+}
+
+//Vai pegar pelo id o usuario clicado da vez
+function relatorio(id){
+    localStorage.setItem('IdClick', id)
+    listaRelatorio()
+    abrirRelatorio()
+
+}
+//Função para listar as informaçoes no relatorio
+function listaRelatorio(){
+
+    idUser = localStorage.getItem('IdClick')
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+    let tbody = document.getElementById('tbodyRela')
+
+    for(i=0;i< empresas.Funcionarios.length;i++){
+
+        if(idUser == empresas.Funcionarios[i].id ){
+            usuarioDaVez= i
+            
+        }
+        }
+
+    for(i = 0; i<empresas.Funcionarios[usuarioDaVez].Feedback.Media.length; i++){
+        let tr = tbody.insertRow();
+        let td_data = tr.insertCell();
+        let td_desempenho = tr.insertCell();
+            if(idUser == empresas.Funcionarios[usuarioDaVez].id ){
+            td_data.innerText = empresas.Funcionarios[usuarioDaVez].Feedback.Data[i]
+            td_desempenho.innerText = empresas.Funcionarios[usuarioDaVez].Feedback.Media[i]
+        }
+    }
+    tituloRelatorio.innerHTML = `Média de desempenho ${empresas.Funcionarios[usuarioDaVez].Feedback.DesempenhoMedia}`
+
+}
+
+//Função para sempre refazer o relatorio para não se duplicar
+function RefreshRela(){
+    document.getElementById("table2").innerHTML = ` <table id="table2">
+    <thead class="top-table2">
+<th>Data</th>
+<th>Desempenho</th>
+</thead>
+<tbody id="tbodyRela">
+</tbody>
+</table>`
+}

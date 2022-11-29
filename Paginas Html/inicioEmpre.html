@@ -45,7 +45,7 @@
             <div class="topo-conteudo">
 
                 <div class="topo-direita">
-                    <button class="btn-cadastro" onclick="abrirCadastro('vis-cad')">Cadastrar Funcionario</button>
+                    <button class="btn-cadastro" onclick="abrirCadastro('vis-cad')">Cadastrar Funcionário</button>
                 </div>
                     <div class="topo-esquerda">
                     </div>
@@ -54,7 +54,7 @@
                     <div class="conteudo-cadastro">
 
                         <div class="cabecalho-cadastro">
-                            <h1 class="titulo" id="titulo-cadastro">Novo Funcionario</h1>
+                            <h1 class="titulo" id="titulo-cadastro">Novo Funcionário</h1>
                             <span class="cabecalho-cadastro-fechar" id="vis-cad" onclick="fecharCadastro()">X</span>
                         </div>
 
@@ -76,6 +76,37 @@
                     </div>
 
                 </div>
+
+
+                <div id="vis-relatorio" class="janelaRelatorio">
+                    <div class="conteudo-relatorio">
+
+                        <div class="cabecalho-relatorio">
+                            <h1 class="tituloRela" id="titulo-Relatorio"></h1>
+                            <span class="cabecalho-relatorio-fechar" id="vis-relatorio" onclick="fecharRelatorio()">X</span>
+                        </div>
+
+                        <div class="corpo-relatorio">
+                            <div class="tabela2">
+
+                                <table id="table2">
+                                    <thead class="top-table2">
+                                <th>Data</th>
+                                <th>Desempenho</th>
+            
+                            </thead>
+                            <tbody id="tbodyRela">
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                </div>
             </div>
 
             <div class="tabela-conteudo">
@@ -85,7 +116,7 @@
                     <table id="table">
                         <thead class="top-table">
                     <th class="center">ID</th>
-                    <th>Funcionario</th>
+                    <th>Funcionário</th>
                     <th>CPF</th>
                     <th>Email</th>
                     <th>Telefone</th>

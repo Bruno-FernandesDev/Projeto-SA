@@ -1,5 +1,4 @@
 let idImput = document.getElementById('procuraID')
-let empresa = []
 let erro =   document.getElementById('erro')
 let dimensaoLoguin =document.getElementById('janelaFeedbackLoguin')
 let dimensaoJanela = document.getElementById('janelaFeedback') 
@@ -11,6 +10,7 @@ let textoUm = document.getElementById('texto-1')
 let textoDois = document.getElementById('texto-2')
 let textoTres = document.getElementById('texto-3')
 let textoCategoria = document.getElementById('categoria')
+let data = document.getElementById('txtData')
 let desempenhoComu = []
 let desemprenhoProat = []
 let desempenhoTeamWork = []
@@ -25,24 +25,25 @@ let mediaDesempenho = 0
 
 
 function procuraID(){
-    empresa = JSON.parse(localStorage.getItem('empresaCadastrada'))
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
     
-        for(i=0; i < empresa.Funcionarios.length; i++) {
+        for(i=0; i < empresas.Funcionarios.length; i++) {
     
-            if(empresa.Funcionarios[i].id  == idImput.value){
-                funcionarioIdFeed = empresa.Funcionarios[i].Funcionario
+            if(empresas.Funcionarios[i].id  == idImput.value){
+                funcionarioIdFeed = empresas.Funcionarios[i].Funcionario
                 dimensaoLoguin.style.zIndex = '0'
                 dimensaoJanela.style.zIndex = '1'
                 dimensaoLoguin.style.overflow = 'hidden'
                 carregarDados()
-                localStorage.setItem('idFeedback', empresa.Funcionarios[i].id )
+                localStorage.setItem('idFeedback', empresas.Funcionarios[i].id )
+                puxarData()
             }else{
                 erro.innerText = "Funcionario não encontrado"
             }
             
         }
 
-        if(empresa.Funcionarios.length == 0){
+        if(empresas.Funcionarios.length == 0){
             erro.innerText = "Nenhum Funcionario Cadastrado"
 
         }
@@ -50,6 +51,21 @@ function procuraID(){
        
     }
 
+    function puxarData(){
+
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+
+    id = localStorage.getItem('idFeedback')
+    console.log(id)
+    for(i=0;i<empresas.Funcionarios.length;i++){
+
+        if(empresas.Funcionarios[i].id == id){
+            empresas.Funcionarios[i].Feedback.Data.push(data.value)
+        }
+        localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
+    }
+
+    }
 
 
 
@@ -77,10 +93,25 @@ function Salvar() {
         dimensaoLoguin.style.overflow = 'visible'
         mudaTextoComu()
         esvaziaArray()
+        Desempenho()
         mudaCat =null
     }
 }
 
+function Desempenho(){
+     procuraUser()
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+
+    media = 0
+    for(i=0;i< empresas.Funcionarios[idFunc].Feedback.Media.length;i++) {
+            media += empresas.Funcionarios[idFunc].Feedback.Media[i]
+    }
+    console.log(media)
+        media = media /empresas.Funcionarios[idFunc].Feedback.Media.length
+        empresas.Funcionarios[idFunc].Feedback.DesempenhoMedia = media.toFixed(1)
+        localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
+
+ }
 
 
 function Comunica(){
@@ -312,3 +343,5 @@ function esvaziaArray(){
     desempenhoLider = []
     desempenhoCompro = []
 }
+
+

@@ -140,6 +140,93 @@ display: flex;
     height: 100vw;
     display: none;
 }
+.janelaRelatorio{
+    background-color: rgb(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    display: none;
+}
+.conteudo-relatorio{
+    margin: 0 auto;
+    margin-top: 3%;
+    width: 700px;
+    height: 700px ;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 8px;
+}
+.cabecalho-relatorio{
+    padding: 1px 8px;
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    background-color: #00b8cc;
+}
+.cabecalho-relatorio .titulo{
+    font-weight: bold;
+    font-size: 25px;
+    margin: 10px 0;
+
+}
+.cabecalho-relatorio .cabecalho-relatorio-fechar{
+    padding: 20px 10px;
+    cursor: pointer;
+}
+.corpo-relatorio{
+    margin-top: 10px;
+    padding: 1px 8px 8px 8px;
+    height: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+}
+.tabela2{
+    color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 70%;
+    background-color:#f0f0f0;
+    padding: 2px 0;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 3px 3px rgb(50, 50, 50, 0.77);
+    -moz-box-shadow: 3px 3px 3px 3px rgb(50, 50, 50, 0.77);
+    box-shadow: 3px 3px 3px 3px rgb(50, 50, 50, 0.77);
+
+}
+
+.tabela2 table{
+    width: 100%;
+    max-width:100%;
+    border-collapse: collapse;
+    
+}
+
+.tabela2 table tr td{
+    height: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .25px;
+    text-align: center;
+    padding: 0 10px;
+    
+
+}
+
+.tabela2 table tr td{
+    vertical-align: middle;
+    width: 20%;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    border-bottom: 1px solid #000000;
+
+}
+
+
+
 .conteudo-cadastro{
     margin: 0 auto;
     margin-top: 3%;
