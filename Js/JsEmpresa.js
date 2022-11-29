@@ -134,9 +134,9 @@ function atualizarDados(id){
 
 //Função para deletar o usuario a partir do seu id
 function deletar(id){
-    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
-    let tbody = document.getElementById('tbody')
 
+    if(confirm(`Deseja Realmente deletar o funcionario do ID ${id}`)){
+    let tbody = document.getElementById('tbody')
     //Vai comparar o id ate achar para excluir 
     for(i=0; i < empresas.Funcionarios.length; i++) {
         if(empresas.Funcionarios[i].id  == id){
@@ -149,6 +149,7 @@ function deletar(id){
     //Enviar para o localStorage e atualizando a lista
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     Refresh()
+}
 }
 
 
