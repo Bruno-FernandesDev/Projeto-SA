@@ -54,6 +54,7 @@ align-items: center;
 .menu-meio{
 width: 50%;
 }
+
 h1 {
     font-family: 'K2D', sans-serif;
     margin: 0px;
@@ -270,3 +271,4 @@ display: flex;
     border-bottom: 1px solid #000000;
 
 }
+
