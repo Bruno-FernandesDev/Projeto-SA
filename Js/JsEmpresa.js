@@ -69,7 +69,7 @@ function listaTabela(){
         td_cpf.innerText = empresas.Funcionarios[i].CPF
         td_email.innerText = empresas.Funcionarios[i].Email
         td_telefone.innerText = empresas.Funcionarios[i].Telefone
-        td_feedback.innerHTML = 'A'
+        td_feedback.innerHTML =  empresas.Funcionarios[i].Feedback.Media
 
         //Criando um icone para Editar o Funcionario
         let imgEdit = document.createElement('img')
@@ -177,7 +177,14 @@ function cadastro(){
             CPF: novoCpf.value.trim(),
             Telefone: novoPhone.value.trim(),
             Email: novoEmail.value.trim(),
-            Feedback: [],
+            Feedback: {
+                Comunicação: [],
+                Proatividade: [],
+                TrabalhoEquipe: [],
+                Liderança: [],
+                Comprometimento: [],
+                Media: []
+            },
             id: idProd
 
         }

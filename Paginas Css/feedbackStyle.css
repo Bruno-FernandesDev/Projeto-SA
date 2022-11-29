@@ -135,8 +135,8 @@ display: flex;
     align-items: center;
     flex-direction: column;
      position: absolute;
-     z-index: 0;
-     overflow: hidden;
+     z-index: 1;
+     overflow:visible;
 
 }
 .inicio-feedback{
@@ -209,7 +209,7 @@ display: flex;
     -moz-box-shadow: 0px 3px 3px 3px rgb(50, 50, 50, 0.77);
     box-shadow: 0px 3px 3px 3px rgb(50, 50, 50, 0.77);
    position: absolute;
-   z-index: 1;
+   z-index: 0;
    display: flex;
    justify-content: center;
    flex-direction: column;
