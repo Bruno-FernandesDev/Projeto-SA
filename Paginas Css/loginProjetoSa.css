@@ -99,6 +99,26 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+     z-index: 1;
+     overflow:visible;
+}
+#loguinDiv{
+    cursor: pointer;
+}
+.rigth-login-user{
+    width: 400px;
+    height: 500px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background: #00B6CC;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+     z-index: 0;
+     overflow:hidden;
 }
 
 .box-rigth {

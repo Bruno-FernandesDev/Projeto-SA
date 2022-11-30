@@ -2,10 +2,22 @@ let userCadastro = document.getElementById('userCad')
 let senhaCadastro = document.getElementById('senhaCad')
 let loguin = document.getElementById('loguinEmpresa')
 let senha = document.getElementById('senhaEmpresa')
+let loguinDiv = document.getElementById('loguinDiv')
+let divLoguinEmpresa = document.getElementById('rigth-login1')
+let divLoguinUser = document.getElementById('rigth-login-user1')
 let usuarios
 let acess = false
 let empresas = []
 
+
+loguinDiv.addEventListener('click', mudarLoguin)
+
+function mudarLoguin(){
+
+        divLoguinUser.style.zIndex = '1'
+        divLoguinEmpresa.style.zIndex = '0'
+        divLoguinEmpresa.style.overflow = 'visible'
+}
 
 function criarCadastro(){
 
