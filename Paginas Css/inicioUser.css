@@ -117,17 +117,50 @@ display: flex;
 }
 .class-feedBack-top{
     width: 100%;
-    height: 34%;
-    background-color: black;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
+.img-perfil{
+    display: flex;
+    justify-content: center;
+}
+input[type='file']{
+    display: none;
+}
+#imgPhoto{
+    margin-top: 10px;
+    height: 110px;
+    width: 110px;
+    padding: 10px;
+    background-color: #eee;
+    border: 5px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .3s;
+}
+#imgPhoto:hover{
+    background-color: rgb(180, 180, 180);
+    border: 5px solid #111;
+}
+
 .class-feedBack-meio{
     width: 100%;
-    height: 33%;
-    background-color: yellow;
+    height: 35%;
+    display: flex;
+}
+.dados-user{
+width: 50%;
+height: 100%;
+}
+.desempenho-user{
+    width: 50%;
+    height: 100%;
 }
 .class-feedBack-bot{
     width: 100%;
-    height: 33%;
+    height: 25%;
     background-color: red;
 }
 .conteudo-direita{

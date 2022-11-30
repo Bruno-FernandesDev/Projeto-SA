@@ -4,11 +4,32 @@ let progressComu = document.querySelector('.barraTres div')
 let progressProa = document.querySelector('.barraQuatro div')
 let progressTeam= document.querySelector('.barraCinco div')
 let empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+let fotoPerfil = document.getElementById('imgPhoto')
+let arquivoFoto = document.getElementById('filImg')
+let nomeFunc = document.getElementById('nome-Func')
 let mediaLider = 0
 let mediaComprometimento = 0
 let mediaComunica = 0
 let mediaProativ = 0
 let mediaTeamWork = 0
+
+
+fotoPerfil.addEventListener('click', () =>{
+    arquivoFoto.click()
+})
+
+arquivoFoto.addEventListener('change', () =>{
+    if(arquivoFoto.files.length <=0){
+        return
+    }
+    let lerArquivo  = new FileReader()
+
+    lerArquivo.onload = () =>{
+        fotoPerfil.src = lerArquivo.result
+    }
+
+    lerArquivo.readAsDataURL(arquivoFoto.files[0])
+})
 
 function PorcentagemLider(){
 
@@ -32,4 +53,12 @@ function PorcentagemLider(){
     progressComu.setAttribute('style', 'width:' + mediaComunica + '%')
     progressProa.setAttribute('style', 'width:' + mediaProativ + '%')
     progressTeam.setAttribute('style', 'width:' + mediaTeamWork + '%')
+}
+
+
+
+function ListarDados(){
+
+
+    nomeFunc.innerText = empresas.Funcionarios[0].Funcionario
 }
