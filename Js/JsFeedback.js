@@ -21,21 +21,24 @@ let mudaCat = null
 let funcionarioIdFeed
 let idFunc
 let mediaDesempenho = 0
+let userLogado = localStorage.getItem('userID')
+let posicaoUser
 
 
 
 function procuraID(){
+    logado()
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
     
-        for(i=0; i < empresas.Funcionarios.length; i++) {
+        for(i=0; i < empresas[posicaoUser].Funcionarios.length; i++) {
     
-            if(empresas.Funcionarios[i].id  == idImput.value){
-                funcionarioIdFeed = empresas.Funcionarios[i].Funcionario
+            if(empresas[posicaoUser].Funcionarios[i].id  == idImput.value){
+                funcionarioIdFeed = empresas[posicaoUser].Funcionarios[i].Funcionario
                 dimensaoLoguin.style.zIndex = '0'
                 dimensaoJanela.style.zIndex = '1'
                 dimensaoLoguin.style.overflow = 'hidden'
                 carregarDados()
-                localStorage.setItem('idFeedback', empresas.Funcionarios[i].id )
+                localStorage.setItem('idFeedback', empresas[posicaoUser].Funcionarios[i].id )
                 puxarData()
             }else{
                 erro.innerText = "Funcionario não encontrado"
@@ -43,7 +46,7 @@ function procuraID(){
             
         }
 
-        if(empresas.Funcionarios.length == 0){
+        if(empresas[posicaoUser].Funcionarios.length == 0){
             erro.innerText = "Nenhum Funcionario Cadastrado"
 
         }
@@ -52,15 +55,15 @@ function procuraID(){
     }
 
     function puxarData(){
-
+        logado()
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
     id = localStorage.getItem('idFeedback')
     console.log(id)
-    for(i=0;i<empresas.Funcionarios.length;i++){
+    for(i=0;i<empresas[posicaoUser].Funcionarios.length;i++){
 
-        if(empresas.Funcionarios[i].id == id){
-            empresas.Funcionarios[i].Feedback.Data.push(data.value)
+        if(empresas[posicaoUser].Funcionarios[i].id == id){
+            empresas[posicaoUser].Funcionarios[i].Feedback.Data.push(data.value)
         }
         localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     }
@@ -99,22 +102,24 @@ function Salvar() {
 }
 
 function Desempenho(){
-     procuraUser()
+    logado()
+    procuraUser()
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
     media = 0
-    for(i=0;i< empresas.Funcionarios[idFunc].Feedback.Media.length;i++) {
-            media += empresas.Funcionarios[idFunc].Feedback.Media[i]
+    for(i=0;i< empresas[posicaoUser].Funcionarios[idFunc].Feedback.Media.length;i++) {
+            media += empresas[posicaoUser].Funcionarios[idFunc].Feedback.Media[i]
     }
     console.log(media)
-        media = media /empresas.Funcionarios[idFunc].Feedback.Media.length
-        empresas.Funcionarios[idFunc].Feedback.DesempenhoMedia = media.toFixed(1)
+        media = media /empresas[posicaoUser].Funcionarios[idFunc].Feedback.Media.length
+        empresas[posicaoUser].Funcionarios[idFunc].Feedback.DesempenhoMedia = media.toFixed(1)
         localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
 
  }
 
 
 function Comunica(){
+    
     mediaDesempenho = 0
     media = 0
     for(i=0;i<primeiroValor.length;i++){
@@ -138,7 +143,7 @@ function Comunica(){
 
     media =Math.round(media / desempenhoComu.length)
     mediaDesempenho += media
-    empresas.Funcionarios[idFunc].Feedback.Comunicação.push(media)
+    empresas[posicaoUser].Funcionarios[idFunc].Feedback.Comunicação.push(media)
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     LimpaRadio()
     mudaTextoProat()
@@ -170,7 +175,7 @@ function Proatividade(){
 
     media =Math.round(media / desemprenhoProat.length)
     mediaDesempenho += media
-    empresas.Funcionarios[idFunc].Feedback.Proatividade.push(media)
+    empresas[posicaoUser].Funcionarios[idFunc].Feedback.Proatividade.push(media)
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
 
     LimpaRadio()
@@ -202,7 +207,7 @@ function teamWork(){
 
     media =Math.round(media / desempenhoTeamWork.length)
     mediaDesempenho += media
-    empresas.Funcionarios[idFunc].Feedback.TrabalhoEquipe.push(media)
+    empresas[posicaoUser].Funcionarios[idFunc].Feedback.TrabalhoEquipe.push(media)
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     LimpaRadio()
     mudaTextoLider()
@@ -233,7 +238,7 @@ function Lider(){
 
     media =Math.round(media / desempenhoLider.length)
     mediaDesempenho += media
-    empresas.Funcionarios[idFunc].Feedback.Liderança.push(media)
+    empresas[posicaoUser].Funcionarios[idFunc].Feedback.Liderança.push(media)
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     LimpaRadio()
     mudaTextoComprometimento()
@@ -264,8 +269,8 @@ function Comprometimento(){
     media =Math.round(media / desempenhoCompro.length)
     mediaDesempenho += media
     mediaDesempenho = mediaDesempenho / 5
-    empresas.Funcionarios[idFunc].Feedback.Comprometimento.push(media)
-    empresas.Funcionarios[idFunc].Feedback.Media.push(mediaDesempenho)
+    empresas[posicaoUser].Funcionarios[idFunc].Feedback.Comprometimento.push(media)
+    empresas[posicaoUser].Funcionarios[idFunc].Feedback.Media.push(mediaDesempenho)
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     LimpaRadio()
 
@@ -312,12 +317,13 @@ function mudaTextoComprometimento(){
 }
 
 function procuraUser() {
+    logado()
     idFunc = localStorage.getItem('idFeedback')
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
-       for(i=0; i< empresas.Funcionarios.length; i++){
+       for(i=0; i< empresas[posicaoUser].Funcionarios.length; i++){
 
-            if(idFunc == empresas.Funcionarios[i].id){
+            if(idFunc == empresas[posicaoUser].Funcionarios[i].id){
                 idFunc = i
             }
        }
@@ -345,3 +351,16 @@ function esvaziaArray(){
 }
 
 
+function logado(){
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+        // Rodando o objeto para saber o usuario da vez que esta logado e pegando a posição dele
+    for(i=0; i < empresas.length; i++){
+        
+        if(userLogado == empresas[i].nomeEmpresa){
+    
+            posicaoUser = i
+    
+        }
+    }
+    }
+    

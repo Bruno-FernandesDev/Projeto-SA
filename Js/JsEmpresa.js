@@ -8,12 +8,14 @@ let empresas = []
 let ediçaoId = null
 let idUser
 let usuarioDaVez
+let userLogado = localStorage.getItem('userID')
+let posicaoUser
 
 
 
 //Função para enviar cadastro de novo Funcionario para dentro do localStorage
 function enviarCadastro(){
-
+    logado()
     //Pegando de dentro do localStorage a chave empresaCadastrada e armazenando na variavel
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
@@ -22,9 +24,9 @@ function enviarCadastro(){
     if (ediçaoId == null){
 
     //Condição para saber se existe algo dentro da chave e se não houver vai criar o objeto funcionario dentro da variavel e fazer o cadastro
-    if (empresas == null){
+    if (empresas[posicaoUser] == null){
         
-        empresas = {
+        empresas[posicaoUser] = {
             Funcionarios: [],
         }
         cadastro()
@@ -47,18 +49,18 @@ function enviarCadastro(){
 
 //Função para listar os itens na tabela
 function listaTabela(){
-
+logado()
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
     let tbody = document.getElementById('tbody')
 
 
 
-    for(i = 0; i<empresas.Funcionarios.length; i++){
+    for(i = 0; i<empresas[posicaoUser].Funcionarios.length; i++){
         
-        let imgFeed = Number(empresas.Funcionarios[i].Feedback.DesempenhoMedia)
+        let imgFeed = Number(empresas[posicaoUser].Funcionarios[i].Feedback.DesempenhoMedia)
         let imgEmoji = document.createElement('img')
-        imgEmoji.setAttribute('onclick', 'relatorio('+empresas.Funcionarios[i].id +')')
+        imgEmoji.setAttribute('onclick', 'relatorio('+empresas[posicaoUser].Funcionarios[i].id +')')
         //switch para botar os emojis referente a nota do desempenho
         switch(true){
 
@@ -92,22 +94,22 @@ function listaTabela(){
         let td_acoes = tr.insertCell();
 
         //Armazenando as informaçoes de cada funcionario
-        td_id.innerText = empresas.Funcionarios[i].id
-        td_funcionario.innerText =empresas.Funcionarios[i].Funcionario
-        td_cpf.innerText = empresas.Funcionarios[i].CPF
-        td_email.innerText = empresas.Funcionarios[i].Email
-        td_telefone.innerText = empresas.Funcionarios[i].Telefone
+        td_id.innerText = empresas[posicaoUser].Funcionarios[i].id
+        td_funcionario.innerText =empresas[posicaoUser].Funcionarios[i].Funcionario
+        td_cpf.innerText = empresas[posicaoUser].Funcionarios[i].CPF
+        td_email.innerText = empresas[posicaoUser].Funcionarios[i].Email
+        td_telefone.innerText = empresas[posicaoUser].Funcionarios[i].Telefone
         td_feedback.appendChild(imgEmoji)
 
         //Criando um icone para Editar o Funcionario
         let imgEdit = document.createElement('img')
         imgEdit.src = '../img/editar.png'
-        imgEdit.setAttribute('onclick', 'edicao('+JSON.stringify(empresas.Funcionarios[i])+')')
+        imgEdit.setAttribute('onclick', 'edicao('+JSON.stringify(empresas[posicaoUser].Funcionarios[i])+')')
 
         //Criando um icone para Excluir o Funcionario
         let imgExcluir = document.createElement('img') 
         imgExcluir.src = '../img/excluir.png'
-        imgExcluir.setAttribute('onclick', 'deletar('+empresas.Funcionarios[i].id +')')
+        imgExcluir.setAttribute('onclick', 'deletar('+empresas[posicaoUser].Funcionarios[i].id +')')
         
         td_acoes.appendChild(imgExcluir)
         td_acoes.appendChild(imgEdit)
@@ -141,12 +143,13 @@ abrirCadastro()
 
 //Função para enviar os novos dados atualizados a partir do id do funcionario 
 function atualizarDados(id){
-    for(i = 0; i < empresas.Funcionarios.length; i++){
-        if(empresas.Funcionarios[i].id == id){
-        empresas.Funcionarios[i].Funcionario = novoFunc.value.trim()
-        empresas.Funcionarios[i].CPF =  novoCpf.value.trim()
-        empresas.Funcionarios[i].Email = novoEmail.value.trim()
-        empresas.Funcionarios[i].Telefone = novoPhone.value.trim()
+    logado()
+    for(i = 0; i < empresas[posicaoUser].Funcionarios.length; i++){
+        if(empresas[posicaoUser].Funcionarios[i].id == id){
+            empresas[posicaoUser].Funcionarios[i].Funcionario = novoFunc.value.trim()
+            empresas[posicaoUser].Funcionarios[i].CPF =  novoCpf.value.trim()
+            empresas[posicaoUser].Funcionarios[i].Email = novoEmail.value.trim()
+            empresas[posicaoUser].Funcionarios[i].Telefone = novoPhone.value.trim()
         }
     }
 
@@ -163,13 +166,13 @@ function atualizarDados(id){
 
 //Função para deletar o usuario a partir do seu id
 function deletar(id){
-
+    logado()
     if(confirm(`Deseja Realmente deletar o Funcionário do ID ${id}`)){
     let tbody = document.getElementById('tbody')
     //Vai comparar o id ate achar para excluir 
-    for(i=0; i < empresas.Funcionarios.length; i++) {
-        if(empresas.Funcionarios[i].id  == id){
-            empresas.Funcionarios.splice(i , 1)
+    for(i=0; i < empresas[posicaoUser].Funcionarios.length; i++) {
+        if(empresas[posicaoUser].Funcionarios[i].id  == id){
+            empresas[posicaoUser].Funcionarios.splice(i , 1)
             tbody.deleteRow(i)
         }
         
@@ -184,12 +187,13 @@ function deletar(id){
 
 //Criando cadastro de novo funcionario e criando uma ID dinamica pra ele
 function cadastro(){
+    logado()
     let numID = 0
-    let idProd = empresas.Funcionarios.length + 1
+    let idProd = empresas[posicaoUser].Funcionarios.length + 1
 
-    for(i=0; i<empresas.Funcionarios.length;i++){
+    for(i=0; i<empresas[posicaoUser].Funcionarios.length;i++){
 
-        if(empresas.Funcionarios[i].id  == idProd){
+        if(empresas[posicaoUser].Funcionarios[i].id  == idProd){
             numID = 1
 
         } 
@@ -199,7 +203,7 @@ function cadastro(){
         idProd+= 1
     }
     //Puxando para dentro da array funcionarios as informaçoes de cadastro
-    empresas.Funcionarios.push(
+    empresas[posicaoUser].Funcionarios.push(
         {
 
             Funcionario: novoFunc.value.trim(),
@@ -304,29 +308,30 @@ function relatorio(id){
 }
 //Função para listar as informaçoes no relatorio
 function listaRelatorio(){
+    logado()
 
     idUser = localStorage.getItem('IdClick')
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
     let tbody = document.getElementById('tbodyRela')
 
-    for(i=0;i< empresas.Funcionarios.length;i++){
+    for(i=0;i< empresas[posicaoUser].Funcionarios.length;i++){
 
-        if(idUser == empresas.Funcionarios[i].id ){
+        if(idUser == empresas[posicaoUser].Funcionarios[i].id ){
             usuarioDaVez= i
             
         }
         }
 
-    for(i = 0; i<empresas.Funcionarios[usuarioDaVez].Feedback.Media.length; i++){
+    for(i = 0; i<empresas[posicaoUser].Funcionarios[usuarioDaVez].Feedback.Media.length; i++){
         let tr = tbody.insertRow();
         let td_data = tr.insertCell();
         let td_desempenho = tr.insertCell();
-            if(idUser == empresas.Funcionarios[usuarioDaVez].id ){
-            td_data.innerText = empresas.Funcionarios[usuarioDaVez].Feedback.Data[i]
-            td_desempenho.innerText = empresas.Funcionarios[usuarioDaVez].Feedback.Media[i]
+            if(idUser == empresas[posicaoUser].Funcionarios[usuarioDaVez].id ){
+            td_data.innerText = empresas[posicaoUser].Funcionarios[usuarioDaVez].Feedback.Data[i]
+            td_desempenho.innerText = empresas[posicaoUser].Funcionarios[usuarioDaVez].Feedback.Media[i]
         }
     }
-    tituloRelatorio.innerHTML = `Média de desempenho ${empresas.Funcionarios[usuarioDaVez].Feedback.DesempenhoMedia}`
+    tituloRelatorio.innerHTML = `Média de desempenho ${empresas[posicaoUser].Funcionarios[usuarioDaVez].Feedback.DesempenhoMedia}`
 
 }
 
@@ -341,3 +346,18 @@ function RefreshRela(){
 </tbody>
 </table>`
 }
+
+
+function logado(){
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+        // Rodando o objeto para saber o usuario da vez que esta logado e pegando a posição dele
+    for(i=0; i < empresas.length; i++){
+        
+        if(userLogado == empresas[i].nomeEmpresa){
+    
+            posicaoUser = i
+    
+        }
+    }
+    }
+    
