@@ -105,6 +105,7 @@ h3 {
 }
 #loguinDiv{
     cursor: pointer;
+    color: white;
 }
 .rigth-login-user{
     width: 400px;
