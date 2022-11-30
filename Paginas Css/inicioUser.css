@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+
+html{
+
+    height: 100%;
+
+}
+
+body{ 
+
+    height: 100%;
+    margin: 0;
+
+}
+.main-container{
+
+    height: 100%;
+
+}
+
+.top-menu{
+    height: 14%;
+    background-color: #00B6CC;
+    width: 100%;
+    display: flex;
+}
+
+
+
+.menu-esquerda{
+width: 25%;
+display: flex;
+}
+.inicio{
+width: 50%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.feedback{
+width: 50%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+
+.menu-meio{
+width: 50%;
+}
+
+h1 {
+    font-family: 'K2D', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#textOne {
+    color: red;
+}
+#textTwo {
+    margin: 0px;
+    padding: 0px;
+    height: 10%;
+}
+
+
+.menu-direita{
+width: 25%;
+display: flex;
+}
+.name{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exit{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.conteudo{
+    background-color: black;
+    width: 100%;
+    height: 86%;
+    display: flex;
+}
+.conteudo-esquerda{
+    background-color: brown;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.class-feedBack{
+    width: 70%;
+    height: 80%;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+.class-feedBack-top{
+    width: 100%;
+    height: 34%;
+    background-color: black;
+}
+.class-feedBack-meio{
+    width: 100%;
+    height: 33%;
+    background-color: yellow;
+}
+.class-feedBack-bot{
+    width: 100%;
+    height: 33%;
+    background-color: red;
+}
+.conteudo-direita{
+    width: 50%;
+    height: 100%;
+    background-color: orange;
+}
+
+.barra, .barraDois, .barraTres, .barraQuatro, .barraCinco{
+    width: 300px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(21, 19, 19);
+}
+
+.barra div , .barraDois div, .barraTres div, .barraQuatro div, .barraCinco div {
+    height: 100%;
+    border-radius: 10px;
+    background-color: red;
+}
