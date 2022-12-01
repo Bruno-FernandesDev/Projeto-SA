@@ -63,7 +63,6 @@ function procuraID(){
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
     id = localStorage.getItem('idFeedback')
-    console.log(id)
     for(i=0;i<empresas[posicaoUser].Funcionarios.length;i++){
 
         if(empresas[posicaoUser].Funcionarios[i].id == id){
@@ -74,11 +73,38 @@ function procuraID(){
 
     }
 
+    function Salvar(){
+
+        let e = 0
+        let j = 0
+        let o = 0
+        let tamanhoBox = primeiroValor.length
+        for(i=0;i<primeiroValor.length;i++){
+    
+            if(primeiroValor[i].checked==false){
+                 e++
+            }
+            if(segundoValor[i].checked==false){
+                 j++
+                 
+            }if(terceiroValor[i].checked==false){
+                o++
+            }
+         }
+
+         if(e == tamanhoBox || j == tamanhoBox || o == tamanhoBox){
+            alert('Opção em branco')
+         }else{
+            SalvarDesempenho()
+         }
+    }
 
 
-function Salvar() {
+function SalvarDesempenho() {
 
     procuraUser()
+
+    
 
     if(mudaCat == null){
         Comunica()
