@@ -2,57 +2,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
 
 
-html{
+html {
 
     height: 100%;
 
 }
 
-body{ 
+body {
 
     height: 100%;
     margin: 0;
 
 }
-.main-container{
+
+.main-container {
 
     height: 100%;
 
 }
-.top-menu{
+
+.top-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: #00B6CC;
-
 }
 
 
-.menu-esquerda{
-width: 25%;
-display: flex;
-}
-.inicio{
-width: 50%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-
-}
-.feedback{
-width: 50%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+.menu-esquerda {
+    width: 25%;
+    display: flex;
 }
 
 
+.inicio {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    font-family: 'K2D', sans-serif;
 
-.menu-meio{
-width: 50%;
+
+}
+
+.feedback {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.menu-meio {
+    width: 50%;
 }
 
 h1 {
@@ -68,6 +76,7 @@ h1 {
     color: red;
     font-size: 25px;
     font-weight: bold;
+    transform: translate(0px, 8px);
 
 
 }
@@ -77,64 +86,79 @@ h1 {
     padding: 0px;
     height: 10%;
     font-size: 35px;
+    transform: translate(0px, -2px);
+
 
 }
 
 
-.menu-direita{
-width: 25%;
-display: flex;
+.menu-direita {
+    width: 25%;
+    display: flex;
 }
-.name{
+
+.name {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
-.exit{
+
+.exit {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 18px;
+    color: white;
+    font-family: 'K2D', sans-serif;
 }
 
 
-.conteudo{
+.conteudo {
     width: 100%;
-    height: 86%;
+    height: 89.5%;
     display: flex;
 }
-.conteudo-esquerda{
+
+.conteudo-esquerda {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.class-feedBack{
+
+.class-feedBack {
     width: 70%;
-    height: 80%;
-    background-color: rgb(44, 154, 154);
+    height: 90%;
+    background-color: #00B6CC;
     display: flex;
     flex-direction: column;
+    border-radius: 150px 150px 150px 150px;
 }
-.class-feedBack-top{
+
+.class-feedBack-top {
     width: 100%;
-    height: 40%;
+    height: 30%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.img-perfil{
+
+.img-perfil {
     display: flex;
     justify-content: center;
 }
-input[type='file']{
+
+input[type='file'] {
     display: none;
 }
-#imgPhoto{
+
+#imgPhoto {
     margin-top: 10px;
     height: 110px;
     width: 110px;
@@ -145,38 +169,67 @@ input[type='file']{
     cursor: pointer;
     transition: background .3s;
 }
-#imgPhoto:hover{
+
+
+#imgPhoto:hover {
     background-color: rgb(180, 180, 180);
     border: 5px solid #111;
+
 }
 
-.class-feedBack-meio{
+.class-feedBack-meio {
     width: 100%;
     height: 35%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
-.dados-user{
-width: 50%;
-height: 100%;
-}
-.desempenho-user{
+
+.dados-user {
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.class-feedBack-bot{
+
+
+
+.desempenho-user {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.class-feedBack-bot {
     width: 100%;
     height: 25%;
 }
-.conteudo-direita{
+
+
+.conteudo-direita {
     width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: yellowgreen;
 }
 
-.barra, .barraDois, .barraTres, .barraQuatro, .barraCinco{
+
+
+.barra,
+.barraDois,
+.barraTres,
+.barraQuatro,
+.barraCinco {
     width: 300px;
     height: 20px;
     border-radius: 10px;
@@ -185,8 +238,17 @@ height: 100%;
     margin-bottom: 10px;
 }
 
-.barra div , .barraDois div, .barraTres div, .barraQuatro div, .barraCinco div {
+.barra div,
+.barraDois div,
+.barraTres div,
+.barraQuatro div,
+.barraCinco div {
     height: 100%;
     border-radius: 10px;
-    background-color: red;
+    background-color: rgb(215, 11, 11);
+}
+
+#analise {
+    transform: translate(0px, -30px);
+
 }
