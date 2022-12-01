@@ -62,31 +62,7 @@ function listaTabela(){
 
     for(i = 0; i<empresas[posicaoUser].Funcionarios.length; i++){
         
-        let imgFeed = Number(empresas[posicaoUser].Funcionarios[i].Feedback.DesempenhoMedia)
-        let imgEmoji = document.createElement('img')
-        imgEmoji.setAttribute('onclick', 'relatorio('+empresas[posicaoUser].Funcionarios[i].id +')')
-        //switch para botar os emojis referente a nota do desempenho
-        switch(true){
-
-            case imgFeed >= 0 && imgFeed <2:
-                imgEmoji.src = '../img/ruim2.jpg'
-                break
-                case imgFeed >= 2 && imgFeed <= 3:
-                    imgEmoji.src = '../img/Ruim.png'
-                    break
-                case imgFeed > 3 && imgFeed <= 5:
-                    imgEmoji.src = '../img/medio.png'
-
-                    break
-                    case imgFeed > 5 && imgFeed <= 7:
-                        imgEmoji.src = '../img/otimo.png' 
-
-                        break
-                        case imgFeed > 7 && imgFeed <= 10:
-                            imgEmoji.src = '../img/Exelente.png'
-                            break 
-            
-        }
+        
         //Criação das linhas e colunas
         let tr = tbody.insertRow();
         let td_id = tr.insertCell();
@@ -103,7 +79,6 @@ function listaTabela(){
         td_cpf.innerText = empresas[posicaoUser].Funcionarios[i].CPF
         td_email.innerText = empresas[posicaoUser].Funcionarios[i].Email
         td_telefone.innerText = empresas[posicaoUser].Funcionarios[i].Telefone
-        td_feedback.appendChild(imgEmoji)
 
         //Criando um icone para Editar o Funcionario
         let imgEdit = document.createElement('img')
@@ -114,9 +89,14 @@ function listaTabela(){
         let imgExcluir = document.createElement('img') 
         imgExcluir.src = '../img/excluir.png'
         imgExcluir.setAttribute('onclick', 'deletar('+empresas[posicaoUser].Funcionarios[i].id +')')
+
+        let imgEmoji = document.createElement('img')
+        imgEmoji.src = '../img/icons8-gráfico-positivo-40.png'
+        imgEmoji.setAttribute('onclick', 'relatorio('+empresas[posicaoUser].Funcionarios[i].id +')')
         
         td_acoes.appendChild(imgExcluir)
         td_acoes.appendChild(imgEdit)
+        td_feedback.appendChild(imgEmoji)
         imgExcluir.style.cursor= 'pointer'
         imgEdit.style.cursor= 'pointer'
         imgEmoji.style.cursor= 'pointer'
