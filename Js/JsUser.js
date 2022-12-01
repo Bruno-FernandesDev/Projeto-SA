@@ -36,6 +36,7 @@ arquivoFoto.addEventListener('change', () =>{
 
 function Desempenho(){
     ProcuraUser()
+    ListarDados()
     for(i=0;i<empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length;i++) {
         
         mediaLider += empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Liderança[i]
@@ -56,6 +57,7 @@ function Desempenho(){
     progressComu.setAttribute('style', 'width:' + mediaComunica + '%')
     progressProa.setAttribute('style', 'width:' + mediaProativ + '%')
     progressTeam.setAttribute('style', 'width:' + mediaTeamWork + '%')
+    
 }
 
 
@@ -70,6 +72,7 @@ function ProcuraUser(){
 }
 function ListarDados(){
 
-
     nomeFunc.innerText = empresas[idEmpresa].Funcionarios[posicaoUser].Funcionario
+
+
 }
