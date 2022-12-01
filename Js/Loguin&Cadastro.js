@@ -97,6 +97,7 @@ function Entrar(){
     
     if(empresas == null){
         alert('Nenhuma Empresa Cadastrada')
+        LimpaImput()
     }
     
     for(i=0; i < empresas.length; i++) {

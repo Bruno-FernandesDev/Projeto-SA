@@ -192,6 +192,11 @@ function deletar(id){
 //Criando cadastro de novo funcionario e criando uma ID dinamica pra ele
 function cadastro(){
     logado()
+
+    if(novoFunc.value == '' || novoCpf.value == '' || novoPhone.value == '' || novoEmail.value == '' ){
+        alert('não pode deixar vazio')
+    }else{
+
     let numID = 0
     let idProd = empresas[posicaoUser].Funcionarios.length + 1
 
@@ -230,6 +235,8 @@ function cadastro(){
         }
     )
     limpaImput()
+}
+
 }
 
 //Limpar os inputs da janela modal
