@@ -51,30 +51,39 @@ function Desempenho(){
         mediaTeamWork += empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.TrabalhoEquipe[i]
     }
 
-        mediaLider = (mediaLider / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
-        mediaComprometimento = (mediaComprometimento / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
-        mediaComunica = (mediaComunica / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
-        mediaProativ = (mediaProativ / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
-        mediaTeamWork = (mediaTeamWork / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
     
-    progressLid.setAttribute('style', 'width:' + mediaLider + '%')
-    progressCompro.setAttribute('style', 'width:' + mediaComprometimento + '%')
-    progressComu.setAttribute('style', 'width:' + mediaComunica + '%')
-    progressProa.setAttribute('style', 'width:' + mediaProativ + '%')
-    progressTeam.setAttribute('style', 'width:' + mediaTeamWork + '%')
+    mediaLider = (mediaLider / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
+    mediaComprometimento = (mediaComprometimento / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
+    mediaComunica = (mediaComunica / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
+    mediaProativ = (mediaProativ / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
+    mediaTeamWork = (mediaTeamWork / empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length) * 10
+
     
+    if(empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.Comunicação.length == 0){
+        mediaLider = 0
+        mediaComprometimento = 0
+        mediaComunica = 0
+        mediaProativ = 0
+        mediaTeamWork = 0
+    }
+   
+        progressLid.setAttribute('style', 'width:' + mediaLider + '%')
+        progressCompro.setAttribute('style', 'width:' + mediaComprometimento + '%')
+        progressComu.setAttribute('style', 'width:' + mediaComunica + '%')
+        progressProa.setAttribute('style', 'width:' + mediaProativ + '%')
+        progressTeam.setAttribute('style', 'width:' + mediaTeamWork + '%')
 }
 
 
 function ProcuraUser(){
-
     for(i=0; i<empresas[idEmpresa].Funcionarios.length; i++){
         if (empresas[idEmpresa].Funcionarios[i].id == idUser){
             posicaoUser = i
-
         } 
     }
 }
+
+
 function ListarDados(){
     let numeroDesempenho = document.getElementById('classNumber')
     let imgFeed = Number(empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.DesempenhoMedia)
@@ -85,53 +94,42 @@ function ListarDados(){
     dadosPhone.innerText += ` ` + empresas[idEmpresa].Funcionarios[posicaoUser].Telefone
     numeroDesempenho.innerText = imgFeed + '%'
     
-switch(true){
-
-    case imgFeed >= 0 && imgFeed <2:
-        imgEmoji.src = '../img/Emoji1.png'
-        break
+    switch(true){
+        case imgFeed >= 0 && imgFeed <2:
+            imgEmoji.src = '../img/Emoji1.png'
+            break
         case imgFeed >= 2 && imgFeed <= 4:
             imgEmoji.src = '../img/Emoji2.png'
             break
         case imgFeed > 4 && imgFeed <= 6:
             imgEmoji.src = '../img/Emoji3.png'
-
             break
-            case imgFeed > 6 && imgFeed <= 8:
-                imgEmoji.src = '../img/Emoji4.png' 
-
-                break
-                case imgFeed > 8 && imgFeed <= 10:
-                    imgEmoji.src = '../img/Emoji5.png'
-                    break 
-    
-}
-
+        case imgFeed > 6 && imgFeed <= 8:
+            imgEmoji.src = '../img/Emoji4.png' 
+            break
+        case imgFeed > 8 && imgFeed <= 10:
+            imgEmoji.src = '../img/Emoji5.png'
+            break 
+                }
 
 }
 
-    function AbreModal() {
-
+function AbreModal() {
     modal.style.display = 'block'
     document.body.style.overflow = 'hidden'
-    }
+}
     
-    function fecharCadastro() {
-    
+function fecharCadastro() {
         modal.style.display = 'none'
         document.body.style.overflow = 'auto'
         senhaNova.value = ''
-    
-     }
+}
 
 
 function TrocaSenha(){
-
     empresas[idEmpresa].Funcionarios[posicaoUser].Senha = senhaNova.value
-
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     fecharCadastro()
-
     alert(`Nova senha cadastrada!`)
 }
 

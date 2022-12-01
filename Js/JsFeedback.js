@@ -1,3 +1,4 @@
+//Criando as variaveis globais
 let idImput = document.getElementById('procuraID')
 let erro =   document.getElementById('erro')
 let dimensaoLoguin =document.getElementById('janelaFeedbackLoguin')
