@@ -82,12 +82,12 @@ function listaTabela(){
 
         //Criando um icone para Editar o Funcionario
         let imgEdit = document.createElement('img')
-        imgEdit.src = '../img/editar.png'
+        imgEdit.src = '../img/icons8-editar-arquivo-25.png'
         imgEdit.setAttribute('onclick', 'edicao('+JSON.stringify(empresas[posicaoUser].Funcionarios[i])+')')
 
         //Criando um icone para Excluir o Funcionario
         let imgExcluir = document.createElement('img') 
-        imgExcluir.src = '../img/excluir.png'
+        imgExcluir.src = '../img/icons8-lixo-30.png'
         imgExcluir.setAttribute('onclick', 'deletar('+empresas[posicaoUser].Funcionarios[i].id +')')
 
         let imgEmoji = document.createElement('img')
