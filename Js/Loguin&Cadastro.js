@@ -53,18 +53,24 @@ function criarCadastro(){
 
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
     
+    if(userCadastro.value == ''  || senhaCadastro.value == '' ){
+        alert('Não pode deixar vazio')
+        userCadastro.value = ''  
+        senhaCadastro.value = ''
+    }else{
+
   if (empresas == null){
         empresas = []
         CadastrarUsuario()
     }else{
     CadastrarUsuario()
     }
-
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     window.location.href = 'loginProjetoSA.html'
-
 }
 
+
+}
 //Cadastra a Empresa e faz o objeto dela e envia para o localStorage
 function CadastrarUsuario(){
     let objUser = {
@@ -89,6 +95,9 @@ function CadastrarUsuario(){
 function Entrar(){
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
     
+    if(empresas == null){
+        alert('Nenhuma Empresa Cadastrada')
+    }
     
     for(i=0; i < empresas.length; i++) {
         
@@ -155,5 +164,6 @@ function LimpaImput(){
     senha.value = ''
     loguinFunc.value = ''
     senhaFunc.value = ''
+    
 }
 
