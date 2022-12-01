@@ -10,7 +10,11 @@ let divLoguinUser = document.getElementById('rigth-login-user1')
 let usuarios
 let acess = false
 let empresas = []
-loguinDiv.addEventListener('click', mudarLoguin)
+let tipoDeLoguin = localStorage.getItem('tipoDeLoguin')
+
+
+
+        loguinDiv.addEventListener('click', mudarLoguin)
 
 
 
@@ -18,16 +22,25 @@ loguinDiv.addEventListener('click', mudarLoguin)
 
 function LogarFunc() {
     window.location.href = 'loginProjetoSA.html'
+
+    localStorage.setItem('tipoDeLoguin', 0)
+}
+
+function LogarEmpre(){
+    window.location.href = 'loginProjetoSA.html'
+    localStorage.setItem('tipoDeLoguin', 1)
+}
+
+if(tipoDeLoguin == 0){
     mudarLoguin()
 }
 
 function mudarLoguin(){
-
-
         divLoguinUser.style.zIndex = '1'
         divLoguinEmpresa.style.zIndex = '0'
         divLoguinEmpresa.style.overflow = 'visible'
 }
+
 
 function criarCadastro(){
 
