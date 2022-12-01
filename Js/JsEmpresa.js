@@ -111,7 +111,7 @@ function edicao(dados){
     //Variavel deixa de ser null entao ele sabe que se trata de uma edição e não um novo cadastro
     ediçaoId = dados.id
     //Abrir janela modal
-abrirCadastro()
+    abrirCadastro()
     
     //Botando os dados do funcionario respectivo nos inputs para pode haver a edição
     document.getElementById('func').value = dados.Funcionario;
@@ -127,6 +127,10 @@ abrirCadastro()
 
 //Função para enviar os novos dados atualizados a partir do id do funcionario 
 function atualizarDados(id){
+    if(novoFunc.value == '' || novoCpf.value == '' || novoPhone.value == '' || novoEmail.value == '' ){
+        alert('não pode deixar vazio')
+    }else{
+
     logado()
     for(i = 0; i < empresas[posicaoUser].Funcionarios.length; i++){
         if(empresas[posicaoUser].Funcionarios[i].id == id){
@@ -145,6 +149,7 @@ function atualizarDados(id){
     ediçaoId = null
     limpaImput()
 
+}
 
 }
 
