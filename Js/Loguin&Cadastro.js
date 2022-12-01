@@ -10,11 +10,19 @@ let divLoguinUser = document.getElementById('rigth-login-user1')
 let usuarios
 let acess = false
 let empresas = []
-
-
 loguinDiv.addEventListener('click', mudarLoguin)
 
+
+
+
+
+function LogarFunc() {
+    window.location.href = 'loginProjetoSA.html'
+    mudarLoguin()
+}
+
 function mudarLoguin(){
+
 
         divLoguinUser.style.zIndex = '1'
         divLoguinEmpresa.style.zIndex = '0'
@@ -72,7 +80,6 @@ function Entrar(){
             acess = true
             let user = empresas[i].nomeEmpresa
             localStorage.setItem('userID', user )
-            alert(`acesso`)
 
     }
 
@@ -103,8 +110,8 @@ function EntrarFunc(){
     for(i=0; i<empresas[idEmpresa].Funcionarios.length; i++) {
             if(senhaFunc.value ==empresas[idEmpresa].Funcionarios[i].CPF){
                 acess+= 1
-                let user = empresas[idEmpresa].Funcionarios[i].CPF
-                localStorage.setItem('userID', user )
+                localStorage.setItem('idUser', empresas[idEmpresa].Funcionarios[i].id )
+                localStorage.setItem('idEmpresa', idEmpresa )
             }
     }
 if(acess == 2){

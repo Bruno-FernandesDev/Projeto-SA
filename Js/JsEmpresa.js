@@ -210,6 +210,7 @@ function cadastro(){
             CPF: novoCpf.value.trim(),
             Telefone: novoPhone.value.trim(),
             Email: novoEmail.value.trim(),
+            Senha: 1,
             Feedback: {
                 Comunicação: [],
                 Proatividade: [],
