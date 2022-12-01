@@ -73,7 +73,7 @@ h3 {
 #textOne {
     color: red;
 }
-
+ 
 #textTwo {
     margin: 0px;
     padding: 0px;
@@ -103,9 +103,15 @@ h3 {
      z-index: 1;
      overflow:visible;
 }
-#loguinDiv{
+#loguinDiv,#loguinDivEmpre{
     cursor: pointer;
     color: white;
+}
+#loguinDiv:hover{
+    color: #b6ebf1;
+}
+#loguinDivEmpre:hover{
+    color: #b6ebf1;
 }
 .rigth-login-user{
     width: 400px;

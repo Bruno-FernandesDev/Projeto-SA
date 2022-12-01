@@ -31,15 +31,15 @@
                     </div>
                     <h3>Empresa</h3>
                     <div class="box-center">
-                        <input id="loguinEmpresa" type="text" placeholder="Conta">
-                         <input id="senhaEmpresa" type="password" placeholder="Senha">
+                        <input id="loguinEmpresa" style="text-align: center" type="text" placeholder="Conta">
+                         <input id="senhaEmpresa" style="text-align: center" type="password" placeholder="Senha">
                         <button onclick="Entrar()">Entrar</button>
                     </div>
                     <div class="box-bottom">
                         <div class="option">
                         <a href="cadastro.html">Cadastra-se</a>
                         <a href="">Esqueci minha senha</a>
-                        <label id="loguinDiv">Login Funcionario</label>
+                        <label id="loguinDiv" onclick="mudarLoguin()">Login Funcionário</label>
                     </div>
                         <div class="icon">
                             <a href=""><i class="fa-brands fa-facebook"></i></a>
@@ -56,14 +56,16 @@
                         <h2>Login</h2>
                         <div class="linha"></div>
                     </div>
-                    <h3>Funcionario</h3>
+                    <h3>Funcionário</h3>
                     <div class="box-center">
-                        <input id="loguinFunc" type="text" placeholder="Nome Da Empresa">
-                         <input id="senhaFunc" type="text" placeholder="CPF">
+                        <input id="loguinFunc" type="text" style="text-align: center" placeholder="Nome">
+                        <input id="senhaFunc" type="password" style="text-align: center" placeholder="Senha">
                         <button onclick="EntrarFunc()">Entrar</button>
                     </div>
                     <div class="box-bottom">
                         <div class="option">
+                            <a href="cadastro.html">Cadastra-se</a>
+                            <label id="loguinDivEmpre" onclick="mudarLoguinEmpre()">Login Empresa</label>
                     </div>
                         <div class="icon">
                             <a href=""><i class="fa-brands fa-facebook"></i></a>
@@ -75,6 +77,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <script src="../Js/Loguin&Cadastro.js"></script>
 </body>

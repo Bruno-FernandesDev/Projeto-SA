@@ -7,6 +7,11 @@ let empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 let fotoPerfil = document.getElementById('imgPhoto')
 let arquivoFoto = document.getElementById('filImg')
 let nomeFunc = document.getElementById('nome-Func')
+let dadosCPF = document.getElementById('dadosCPF')
+let dadosEmail = document.getElementById('dadosEmail')
+let dadosPhone = document.getElementById('dadosTelefone')
+let senhaNova = document.getElementById('newSenha')
+let modal =document.getElementById('vis-cad')
 let mediaLider = 0
 let mediaComprometimento = 0
 let mediaComunica = 0
@@ -67,12 +72,67 @@ function ProcuraUser(){
         if (empresas[idEmpresa].Funcionarios[i].id == idUser){
             posicaoUser = i
 
-        }
+        } 
     }
 }
 function ListarDados(){
+    let numeroDesempenho = document.getElementById('classNumber')
+    let imgFeed = Number(empresas[idEmpresa].Funcionarios[posicaoUser].Feedback.DesempenhoMedia)
+    let imgEmoji = document.getElementById('imgEmoji')
+    nomeFunc.innerText += empresas[idEmpresa].Funcionarios[posicaoUser].Funcionario
+    dadosCPF.innerText += ` ` + empresas[idEmpresa].Funcionarios[posicaoUser].CPF
+    dadosEmail.innerText += ` ` + empresas[idEmpresa].Funcionarios[posicaoUser].Email
+    dadosPhone.innerText += ` ` + empresas[idEmpresa].Funcionarios[posicaoUser].Telefone
+    numeroDesempenho.innerText = imgFeed + '%'
+    
+switch(true){
 
-    nomeFunc.innerText = empresas[idEmpresa].Funcionarios[posicaoUser].Funcionario
+    case imgFeed >= 0 && imgFeed <2:
+        imgEmoji.src = '../img/Emoji1.png'
+        break
+        case imgFeed >= 2 && imgFeed <= 4:
+            imgEmoji.src = '../img/Emoji2.png'
+            break
+        case imgFeed > 4 && imgFeed <= 6:
+            imgEmoji.src = '../img/Emoji3.png'
+
+            break
+            case imgFeed > 6 && imgFeed <= 8:
+                imgEmoji.src = '../img/Emoji4.png' 
+
+                break
+                case imgFeed > 8 && imgFeed <= 10:
+                    imgEmoji.src = '../img/Emoji5.png'
+                    break 
+    
+}
 
 
 }
+
+    function AbreModal() {
+
+    modal.style.display = 'block'
+    document.body.style.overflow = 'hidden'
+    }
+    
+    function fecharCadastro() {
+    
+        modal.style.display = 'none'
+        document.body.style.overflow = 'auto'
+        senhaNova.value = ''
+    
+     }
+
+
+function TrocaSenha(){
+
+    empresas[idEmpresa].Funcionarios[posicaoUser].Senha = senhaNova.value
+
+    localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
+    fecharCadastro()
+
+    alert(`Nova senha cadastrada!`)
+}
+
+

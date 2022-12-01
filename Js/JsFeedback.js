@@ -23,6 +23,9 @@ let idFunc
 let mediaDesempenho = 0
 let userLogado = localStorage.getItem('userID')
 let posicaoUser
+let nomeEmpresa = document.getElementById('Name-User')
+nomeEmpresa.innerText = userLogado
+
 
 
 

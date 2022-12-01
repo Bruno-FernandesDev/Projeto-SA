@@ -22,7 +22,7 @@ body {
 }
 
 .top-menu {
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -209,14 +209,35 @@ input[type='file'] {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
 }
+.titleDese{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
 
+.classifica{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+}
+
+.classifica img{
+    width: 100%;
+}
 
 .class-feedBack-bot {
     width: 100%;
     height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 
@@ -257,4 +278,109 @@ input[type='file'] {
 #analise {
     transform: translate(0px, -30px);
 
+}
+
+
+.janelaSenha {
+    background-color: rgb(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    display: none;
+}
+
+.conteudo-senha {
+    margin: 0 auto;
+    margin-top: 3%;
+    width: 700px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.cabecalho-senha {
+    padding: 1px 8px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    border-bottom: solid #eee 1px;
+    height: 15%;
+    background-color: #00B6CC;
+}
+
+.cabecalho-senha .titulo {
+    font-weight: bold;
+    font-size: 25px;
+    margin: 10px 0;
+
+}
+
+.cabecalho-senha .cabecalho-senha-fechar {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.corpo-senha {
+    padding: 1px 8px 8px 8px;
+    display: flex;
+    height: 51.6%;
+
+}
+
+.inptop-corpo-senha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.inptop-corpo-senha input {
+    width: 275px;
+    height: 20px;
+    margin-top: 15px;
+}
+
+
+.rodape-senha {
+    border-top: solid #eee 1px;
+    padding: 8px;
+    height: 33.4%;
+
+}
+
+.btn-enviar {
+    width: 72px;
+    height: 25px;
+    border: #00B6CC;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #00B6CC;
+}
+
+.rodape-senha button:hover {
+
+    background-color: rgb(0, 0, 0);
+
+}
+
+.btnAbreModal {
+    margin-top: 30px;
+    height: 15%;
+    border: #00B6CC;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #00B6CC;
+}
+
+
+.btnAbreModal:hover {
+    color: white;
+    background-color: #98e3ec;
 }

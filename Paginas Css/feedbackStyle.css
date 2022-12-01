@@ -20,13 +20,16 @@ body{
 
 }
 
-.top-menu{
+.top-menu, a{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: #00B6CC;
-
+    font-size: 18px;
+    color: white;
+    font-family: 'K2D', sans-serif;
+    text-decoration: none;
 }
 
 
@@ -41,7 +44,6 @@ height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
-
 }
 .feedback{
 width: 50%;
@@ -177,14 +179,7 @@ display: flex;
     outline: none;
 
 }
-.caixa-texto:hover{
-    border: 1px solid #00aeef;
-}
-.caixa-texto:focus{
-    border: 1px solid #00aeef;
-    box-shadow: 0 0 4px rgba(11, 195, 241, 0.7);
 
-}
 .procuraID{
     border:2px solid #333;
     border-radius: 8px;
@@ -256,7 +251,7 @@ display: flex;
 }
 .categoriaDesempenho{
     width: 100%;
-    height: 20%;
+    height: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -265,7 +260,7 @@ display: flex;
 
 .feedback-question{
     width: 100%;
-    height: 70%;
+    height: 65%;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -306,4 +301,12 @@ display: flex;
     box-sizing: border-box;
     border: 5px solid rgb(0, 0, 0);
     padding: 4px;
+  }
+
+  .btn-enviar{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }

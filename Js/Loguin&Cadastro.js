@@ -2,7 +2,6 @@ let userCadastro = document.getElementById('userCad')
 let senhaCadastro = document.getElementById('senhaCad')
 let loguin = document.getElementById('loguinEmpresa')
 let senha = document.getElementById('senhaEmpresa')
-let loguinDiv = document.getElementById('loguinDiv')
 let senhaFunc = document.getElementById('senhaFunc')
 let loguinFunc = document.getElementById('loguinFunc')
 let divLoguinEmpresa = document.getElementById('rigth-login1')
@@ -12,9 +11,8 @@ let acess = false
 let empresas = []
 let tipoDeLoguin = localStorage.getItem('tipoDeLoguin')
 
+ 
 
-
-        loguinDiv.addEventListener('click', mudarLoguin)
 
 
 
@@ -22,17 +20,17 @@ let tipoDeLoguin = localStorage.getItem('tipoDeLoguin')
 
 function LogarFunc() {
     window.location.href = 'loginProjetoSA.html'
-
     localStorage.setItem('tipoDeLoguin', 0)
 }
 
 function LogarEmpre(){
     window.location.href = 'loginProjetoSA.html'
-    localStorage.setItem('tipoDeLoguin', 1)
+    
 }
 
 if(tipoDeLoguin == 0){
     mudarLoguin()
+    localStorage.setItem('tipoDeLoguin', 1)
 }
 
 function mudarLoguin(){
@@ -41,6 +39,11 @@ function mudarLoguin(){
         divLoguinEmpresa.style.overflow = 'visible'
 }
 
+function mudarLoguinEmpre(){
+        divLoguinUser.style.zIndex = '0'
+        divLoguinEmpresa.style.zIndex = '1'
+        divLoguinEmpresa.style.overflow = 'hidden'
+}
 
 function criarCadastro(){
 
@@ -108,28 +111,39 @@ if(acess == true){
 function EntrarFunc(){
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
-    let idEmpresa
- 
     
-    for(i=0; i < empresas.length; i++) {
+let j = 0
+let e = 0
+let tamanhoTotal = 0
+
+for(i=0; i< empresas.length; i++){
+    tamanhoTotal += empresas[i].Funcionarios.length
+}
+for(i=0; i < tamanhoTotal; i++){
+    if(loguinFunc.value != empresas[e].Funcionarios[j].Funcionario){
+        j++
+    }else{
+        if(senhaFunc.value == empresas[e].Funcionarios[j].Senha){
+            i = tamanhoTotal + 1
+            acess = true
+            localStorage.setItem('idUser', empresas[e].Funcionarios[j].id )
+            localStorage.setItem('idEmpresa', e )
+        }
         
-        if(loguinFunc.value ==  empresas[i].nomeEmpresa) {
-            acess = 1
-            idEmpresa = i
-            
+    }
+    if(empresas[e].Funcionarios.length <= j){
+        e++
+        j = 0
     }
 }
 
-    for(i=0; i<empresas[idEmpresa].Funcionarios.length; i++) {
-            if(senhaFunc.value ==empresas[idEmpresa].Funcionarios[i].CPF){
-                acess+= 1
-                localStorage.setItem('idUser', empresas[idEmpresa].Funcionarios[i].id )
-                localStorage.setItem('idEmpresa', idEmpresa )
-            }
-    }
-if(acess == 2){
+
+if(acess == true){
     window.location.href = 'inicioUser.html'
 }else{
     alert('usuario ou senha incorretos!')
 }
 }
+
+
+

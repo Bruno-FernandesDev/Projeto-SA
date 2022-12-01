@@ -10,6 +10,8 @@ let idUser
 let usuarioDaVez
 let userLogado = localStorage.getItem('userID')
 let posicaoUser
+let nomeEmpresa = document.getElementById('Name-User')
+
 
 
 
@@ -49,7 +51,9 @@ function enviarCadastro(){
 
 //Função para listar os itens na tabela
 function listaTabela(){
-logado()
+    nomeEmpresa.innerText = userLogado
+
+    logado()
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
 
     let tbody = document.getElementById('tbody')

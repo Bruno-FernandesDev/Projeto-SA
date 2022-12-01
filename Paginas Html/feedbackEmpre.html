@@ -31,7 +31,7 @@
 
                     <div class="menu-direita">
                         <div class="name">
-                            <label for="">Nome Pessoa</label>
+                            <label id="Name-User" for="">Nome Pessoa</label>
                         </div>
                         <div class="exit">
                             <a href="paginaIncial.html">Sair</a>
@@ -49,19 +49,19 @@
 
                             <div id="janelaFeedbackLoguin" class="conteudo-meio">
                                 <div class="inicio-feedback">
-                                    <h1>Bem-vindo</h1>
+                                     <h1>Bem-vindo</h1>
                                     <h2>Digite o ID do Funcionário e a data</h2>
                                 </div>
 
                                 <div class="input-feedback">
-                                <input id="procuraID" class="procuraID" placeholder="ID do funcionário" >
-                                <input type="date" id="txtData" name="data" class="caixa-texto" >
+                                <input id="procuraID" class="procuraID" style="text-align: center" placeholder="ID do funcionário" >
+                                <input type="date" id="txtData" name="data" style="text-align: center" class="caixa-texto" >
                                 <button class="procura-button" onclick="procuraID()">Procurar</button>
-                                <h2 id="erro"></h2>
                                 </div>
 
                                  <div class="img-emoji">
-                                    <img class="emojiIMG" src="../img/feedbackEmoji.png" alt="">
+                                 <h2 id="erro"></h2>
+
                                 </div>
 
                             </div>
@@ -114,7 +114,7 @@
                                         </div>
 
                                         <div class="quest">
-                                            <h3 id="texto-3">respeita opiniões diferentes?</h3>
+                                            <h3 id="texto-3">Respeita opiniões diferentes?</h3>
                                             <div>
                                                 <input type="radio" name="3" value="1" id="radio-3-1">
                                                 <label for="radio-3-1">Ruim</label>
@@ -132,12 +132,16 @@
                                       
                                 </div>
 
+                                <div class="btn-enviar">
+
+                                    <input type="button" onclick="Salvar()" value="Enviar">
+                                </div>
+
                             </div>
 
                         </div>
 
                             <div class="conteudo-rodape">
-                             <input type="button" onclick="Salvar()" value="Enviar">
 
                             </div>
 
