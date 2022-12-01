@@ -3,6 +3,8 @@ let senhaCadastro = document.getElementById('senhaCad')
 let loguin = document.getElementById('loguinEmpresa')
 let senha = document.getElementById('senhaEmpresa')
 let loguinDiv = document.getElementById('loguinDiv')
+let senhaFunc = document.getElementById('senhaFunc')
+let loguinFunc = document.getElementById('loguinFunc')
 let divLoguinEmpresa = document.getElementById('rigth-login1')
 let divLoguinUser = document.getElementById('rigth-login-user1')
 let usuarios
@@ -62,11 +64,11 @@ function CadastrarUsuario(){
 
 function Entrar(){
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
- 
+    
     
     for(i=0; i < empresas.length; i++) {
         
-        if(loguin.value ==  empresas[i].nomeEmpresa) {
+        if(loguin.value ==  empresas[i].nomeEmpresa && senha.value == empresas[i].senha) {
             acess = true
             let user = empresas[i].nomeEmpresa
             localStorage.setItem('userID', user )
@@ -78,6 +80,35 @@ function Entrar(){
 
 if(acess == true){
     window.location.href = 'inicioEmpre.html'
+}else{
+    alert('usuario ou senha incorretos!')
+}
+}
+
+function EntrarFunc(){
+    empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
+
+    let idEmpresa
+ 
+    
+    for(i=0; i < empresas.length; i++) {
+        
+        if(loguinFunc.value ==  empresas[i].nomeEmpresa) {
+            acess = 1
+            idEmpresa = i
+            
+    }
+}
+
+    for(i=0; i<empresas[idEmpresa].Funcionarios.length; i++) {
+            if(senhaFunc.value ==empresas[idEmpresa].Funcionarios[i].CPF){
+                acess+= 1
+                let user = empresas[idEmpresa].Funcionarios[i].CPF
+                localStorage.setItem('userID', user )
+            }
+    }
+if(acess == 2){
+    window.location.href = 'inicioUser.html'
 }else{
     alert('usuario ou senha incorretos!')
 }
