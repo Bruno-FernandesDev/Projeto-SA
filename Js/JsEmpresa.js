@@ -65,7 +65,7 @@ logado()
         switch(true){
 
             case imgFeed >= 0 && imgFeed <2:
-                imgEmoji.src = '../img/pessimo.png'
+                imgEmoji.src = '../img/ruim2.jpg'
                 break
                 case imgFeed >= 2 && imgFeed <= 3:
                     imgEmoji.src = '../img/Ruim.png'
