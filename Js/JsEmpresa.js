@@ -17,6 +17,11 @@ let nomeEmpresa = document.getElementById('Name-User')
 
 //Função para enviar cadastro de novo Funcionario para dentro do localStorage
 function enviarCadastro(){
+
+    if(novoFunc.value == '' || novoCpf.value == '' || novoPhone.value == '' || novoEmail.value == '' ){
+        alert('Campos Vazios')
+    }else{
+
     logado()
     //Pegando de dentro do localStorage a chave empresaCadastrada e armazenando na variavel
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
@@ -46,6 +51,8 @@ function enviarCadastro(){
     fecharCadastro()
     //Atualizando a tabela  
     Refresh()
+}
+
 }
 
 
@@ -127,9 +134,7 @@ function edicao(dados){
 
 //Função para enviar os novos dados atualizados a partir do id do funcionario 
 function atualizarDados(id){
-    if(novoFunc.value == '' || novoCpf.value == '' || novoPhone.value == '' || novoEmail.value == '' ){
-        alert('não pode deixar vazio')
-    }else{
+    
 
     logado()
     for(i = 0; i < empresas[posicaoUser].Funcionarios.length; i++){
@@ -149,7 +154,7 @@ function atualizarDados(id){
     ediçaoId = null
     limpaImput()
 
-}
+
 
 }
 
@@ -178,9 +183,7 @@ function deletar(id){
 function cadastro(){
     logado()
 
-    if(novoFunc.value == '' || novoCpf.value == '' || novoPhone.value == '' || novoEmail.value == '' ){
-        alert('não pode deixar vazio')
-    }else{
+   
 
     let numID = 0
     let idProd = empresas[posicaoUser].Funcionarios.length + 1
@@ -220,7 +223,7 @@ function cadastro(){
         }
     )
     limpaImput()
-}
+
 
 }
 
