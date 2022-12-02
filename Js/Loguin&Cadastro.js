@@ -87,8 +87,12 @@ function CadastrarUsuario(){
     
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     
-    alert("Cadastro efetuado!")
-
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
 }
 
 //Funcão para entrar com a Empresa
@@ -113,8 +117,11 @@ function Entrar(){
             if(acess == true){
             window.location.href = 'inicioEmpre.html'
             }else{
-            alert('usuario ou senha incorretos!')
-            LimpaImput()
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro no Login'
+                  })
+                              LimpaImput()
                  }
 }
 
