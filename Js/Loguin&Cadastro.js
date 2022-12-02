@@ -117,10 +117,7 @@ function Entrar(){
             if(acess == true){
             window.location.href = 'inicioEmpre.html'
             }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro no Login'
-                  })
+                alert('Loguin ou senha errados')
                               LimpaImput()
                  }
 }
