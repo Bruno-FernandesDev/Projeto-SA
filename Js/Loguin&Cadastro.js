@@ -87,12 +87,6 @@ function CadastrarUsuario(){
     
     localStorage.setItem('empresaCadastrada', JSON.stringify(empresas))
     
-    Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
-        footer: '<a href="">Why do I have this issue?</a>'
-      })
 }
 
 //Funcão para entrar com a Empresa
@@ -125,42 +119,44 @@ function Entrar(){
 
 //Função para entrar com o Funcionario
 function EntrarFunc(){
+    //Puxa do localStorage e armazena na variavel 
     empresas = JSON.parse(localStorage.getItem('empresaCadastrada'))
-    //Criando as variaveis que vao percorrer o vetor empresas procurando todos os nomes e Senhas
-let j = 0
-let e = 0
-let tamanhoTotal = 0
+    
+    let j = 0
+    let e = 0
+    let tamanhoTotal = 0
 
-//Pego o tamanho Total de Funcionarios cadastrados em todas empresas
-for(i=0; i< empresas.length; i++){
+    //Pego o tamanho Total de Funcionarios cadastrados em todas empresas
+    for(i=0; i< empresas.length; i++){
     tamanhoTotal += empresas[i].Funcionarios.length
-}
-//Percorro pelo total de Funcionarios cadastrados procurando o Nome e quando achar o nome procura a senha
-for(i=0; i < tamanhoTotal; i++){
-    if(loguinFunc.value != empresas[e].Funcionarios[j].Funcionario){
-        j++
-    }else{
-        if(senhaFunc.value == empresas[e].Funcionarios[j].Senha){
-            i = tamanhoTotal + 1
-            acess = true
-            localStorage.setItem('idUser', empresas[e].Funcionarios[j].id )
-            localStorage.setItem('idEmpresa', e )
-        }
+    }
+    //Percorro pelo total de Funcionarios cadastrados procurando o Nome
+    //E quando achar o nome procura a senha
+    for(i=0; i < tamanhoTotal; i++){
+        if(loguinFunc.value != empresas[e].Funcionarios[j].Funcionario){
+            j++
+        }else{
+            if(senhaFunc.value == empresas[e].Funcionarios[j].Senha){
+                i = tamanhoTotal + 1
+                acess = true
+                localStorage.setItem('idUser', empresas[e].Funcionarios[j].id )
+                localStorage.setItem('idEmpresa', e )
+                }
         
+        }
+            if(empresas[e].Funcionarios.length <= j){
+            e++
+            j = 0
+        }
     }
-    if(empresas[e].Funcionarios.length <= j){
-        e++
-        j = 0
-    }
-}
 
-if(acess == true){
-    window.location.href = 'inicioUser.html'
-}else{
-    alert('usuario ou senha incorretos!')
-    LimpaImput()
-}
-}
+    if(acess == true){
+        window.location.href = 'inicioUser.html'
+    }else{
+        alert('usuario ou senha incorretos!')
+        LimpaImput()
+    }
+    }
 
 
 //Limpa os inputs
