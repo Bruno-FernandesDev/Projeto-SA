@@ -18,12 +18,12 @@ let tipoDeLoguin = localStorage.getItem('tipoDeLoguin')
 
 //Função para quando apertar no botao de logar Funcionario na tela inicial setar uma chave no localStorage com valor 0
 function LogarFunc() {
-    window.location.href = 'loginProjetoSA.html'
+    window.location.href = 'Paginas Html/loginProjetoSA.html'
     localStorage.setItem('tipoDeLoguin', 0)
 }
 
 function LogarEmpre(){
-    window.location.href = 'loginProjetoSA.html'
+    window.location.href = 'Paginas Html/loginProjetoSA.html'
     
 }
 

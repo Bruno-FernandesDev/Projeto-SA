@@ -92,7 +92,7 @@ function ListarDados(){
     dadosCPF.innerText += ` ` + empresas[idEmpresa].Funcionarios[posicaoUser].CPF
     dadosEmail.innerText += ` ` + empresas[idEmpresa].Funcionarios[posicaoUser].Email
     dadosPhone.innerText += ` ` + empresas[idEmpresa].Funcionarios[posicaoUser].Telefone
-    numeroDesempenho.innerText = imgFeed + '%'
+    numeroDesempenho.innerText = (imgFeed * 10) + '%'
     
     switch(true){
         case imgFeed >= 0 && imgFeed <2:
