@@ -194,14 +194,18 @@ input[type='file'] {
     align-items: center;
 
 }
-
+.title-dados{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .dados-user {
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
 }
 
 
@@ -355,7 +359,7 @@ input[type='file'] {
 
 .inptop-corpo-senha input {
     width: 275px;
-    height: 20px;
+    height: 20px; 
     margin-top: 15px;
 }
 
